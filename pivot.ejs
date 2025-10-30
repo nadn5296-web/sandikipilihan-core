@@ -1,0 +1,110 @@
+<!-- views/pivot.ejs -->
+<div class="pivot-page">
+  <!-- 🔹 Header -->
+  <div class="page-header mb-3">
+    <h1>💸 Transaction Pivot — DP / WD & Event Tanpa Undi</h1>
+  </div>
+
+  <!-- 🔹 GRID UTAMA -->
+  <div class="content-container pivot-grid">
+    <!-- ============================ -->
+    <!-- 📂 KIRI: Upload File Transaksi -->
+    <!-- ============================ -->
+    <div class="card upload-card">
+      <h5 class="section-title">📂 Upload File Transaksi</h5>
+
+      <div class="input-group">
+        <div>
+          <label for="depositFile" class="form-label">Upload File (Deposit)</label>
+          <input type="file" id="depositFile" accept=".xlsx,.xls,.csv">
+        </div>
+        <div>
+          <label for="withdrawFile" class="form-label">Upload File (Withdraw)</label>
+          <input type="file" id="withdrawFile" accept=".xlsx,.xls,.csv">
+        </div>
+        <div>
+          <label for="adjustFile" class="form-label">Upload File (Adjustment)</label>
+          <input type="file" id="adjustFile" accept=".xlsx,.xls,.csv">
+        </div>
+        <div>
+          <label for="casinoFile" class="form-label">Upload File (Casino)</label>
+          <input type="file" id="casinoFile" accept=".xlsx,.xls,.csv">
+        </div>
+        <div>
+          <label for="slotFile" class="form-label">Upload File (Slot)</label>
+          <input type="file" id="slotFile" accept=".xlsx,.xls,.csv">
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================ -->
+    <!-- ⚙️ KANAN: Prefix & Generate -->
+    <!-- ============================ -->
+    <div class="right-column">
+      <!-- ⚙️ Prefix Processing -->
+      <div class="card prefix-card">
+        <h5 class="section-title">⚙️ Prefix Processing</h5>
+
+        <div class="form-group mb-3">
+          <label for="brandSelector" class="form-label">Pilih Brand untuk Prefix</label>
+          <select id="brandSelector" class="brand-select">
+            <option value="">-- Pilih Brand --</option>
+            <option>IXT</option>
+            <option>BST</option>
+            <option>RJT</option>
+            <option>JT7</option>
+            <option>QS7</option>
+            <option>GCR</option>
+            <option>AS7</option>
+            <option>BBJ</option>
+            <option>LGS</option>
+            <option>K88</option>
+            <option>SES</option>
+            <option>CRS</option>
+            <option>DST</option>
+            <option>SLH</option>
+            <option>KNA</option>
+            <option>SHN</option>
+          </select>
+        </div>
+
+        <div class="button-row mb-2">
+          <button id="prefixCasinoBtn" class="btn-outline-primary">Prefix Data Casino</button>
+          <button id="prefixSlotBtn" class="btn-outline-secondary">Prefix Data Slot</button>
+        </div>
+
+        <!-- ✅ Status Prefix -->
+        <div class="prefix-status small text-success">
+          <div id="casinoPrefixStatus"></div>
+          <div id="slotPrefixStatus"></div>
+        </div>
+      </div>
+
+      <!-- 🚀 Generate Pivot -->
+      <div class="card generate-card">
+        <h5 class="section-title">🚀 Generate Pivot</h5>
+        <div class="button-column">
+          <button id="generateBtn" class="btn-primary">Generate Pivot</button>
+          <button id="generateFinalBtn" class="btn-success">Generate Finishing Pivot</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ -->
+  <!-- 📊 Ringkasan Data -->
+  <!-- ============================ -->
+  <div id="summaryContainer" class="card mt-4"></div>
+
+  <!-- 📈 Finishing Pivot -->
+<div id="finalPivotSection" class="card mt-4 hidden">
+  <div class="d-flex justify-between align-items-center mb-3">
+    <h5 class="section-title">📊 Finishing Pivot</h5>
+    <div class="button-row">
+      <button id="toggleFinalBtn" class="btn-outline-primary btn-sm">Tampilkan Data</button>
+      <button id="downloadFinalBtn" class="btn-outline-success btn-sm">Download Excel</button>
+    </div>
+  </div>
+
+  <div id="finalPivotTable" class="mt-3 hidden"></div>
+</div>

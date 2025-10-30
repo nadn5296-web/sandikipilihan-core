@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GH GROUP Dashboard</title>
+
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/dashboard.css" />
+
+  <% if (page === 'cashback') { %>
+    <link rel="stylesheet" href="/cashback.css">
+  <% } else if (page === 'noncashback') { %>
+    <link rel="stylesheet" href="/noncashback.css">
+  <% } else if (page === 'pivot') { %>
+    <link rel="stylesheet" href="/pivot.css">
+  <% } else if (page === 'transaction_referral') { %>
+    <link rel="stylesheet" href="/referral.css">
+  <% } %>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo-section">
+        <img src="/images/favicon.ico.png" alt="GH GROUP Logo" />
+        <h4>GH GROUP</h4>
+      </div>
+      <nav class="menu-section">
+        <%- include('partials/sidebar', { page }) %>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content fade-in">
+      <div class="topbar">
+        <div class="topbar-left">
+          <h2><%= page ? page.replace('_', ' ').toUpperCase() : 'DASHBOARD' %></h2>
+        </div>
+        <div class="topbar-right">
+          <span>Welcome, <%= user ? user.username : 'Guest' %></span>
+          <a href="/logout" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+      </div>
+      <div class="content-area"><%- body %></div>
+    </main>
+  </div>
+
+  <!-- Sidebar Toggle -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggles = document.querySelectorAll(".submenu-toggle");
+      const topLinks = document.querySelectorAll(".menu-list > li > a:not(.submenu-toggle)");
+
+      toggles.forEach(toggle => {
+        toggle.addEventListener("click", e => {
+          e.preventDefault();
+          const current = toggle.closest(".submenu");
+          document.querySelectorAll(".submenu").forEach(menu => {
+            if (menu !== current) menu.classList.remove("open");
+          });
+          current.classList.toggle("open");
+        });
+      });
+
+      topLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          document.querySelectorAll(".submenu").forEach(menu => menu.classList.remove("open"));
+        });
+      });
+    });
+  </script>
+
+  <!-- Page JS -->
+  <script>
+    const map = {
+      "dashboard": "/JS/dashboard_app.js",
+      "cashback": "/JS/cashback_app.js",
+      "noncashback": "/JS/noncashback_app.js",
+      "pivot": "/JS/pivot_app.js",
+      "transaction_referral": "/JS/referral_app.js"
+    };
+    const current = "<%= page %>";
+    if (map[current]) {
+      const s = document.createElement("script");
+      s.src = map[current] + "?v=" + Date.now();
+      s.defer = true;
+      document.body.appendChild(s);
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</body>
+</html>

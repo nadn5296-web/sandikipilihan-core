@@ -1,0 +1,87 @@
+<!-- views/rollingan/noncashback.ejs -->
+<div class="page-header">
+  <h1>💰 Rollingan Mingguan Non Cashback</h1>
+</div>
+
+<div class="content-container">
+  <!-- Filter Section -->
+  <div class="filter-section card">
+    <div class="input-group">
+      <label for="finishDate">Tanggal Finishing:</label>
+      <input type="date" id="finishDate" class="form-control">
+    </div>
+    <div class="input-group">
+      <label for="prefixOption">Prefix / Brand:</label>
+      <select id="prefixOption" class="form-select">
+        <option value="">-- Pilih Brand --</option>
+        <option value="ixt">IXT - INDOXBET</option>
+        <option value="bst">BST - BIGSLOTO</option>
+        <option value="rjt">RJT - RAJASLOTO</option>
+        <option value="qs7">QS7 - BONANZASLOT88</option>
+        <option value="bbj">BBJ - FRUIT777</option>
+        <option value="lgs">LGS - SUHUSLOT88</option>
+        <option value="crs">CRS - SLOTO88</option>
+        <option value="kna">KNA - KINGGACOR</option>
+        <option value="shn">SHN - SUHUNAGA88</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Upload Providers Section -->
+  <section class="upload-section">
+    <div class="upload-item">
+      <h2>🎰 Provider SLOT</h2>
+      <input type="file" id="slot1" accept=".csv,.xlsx" />
+    </div>
+
+    <div class="upload-item">
+      <h2>🃏 Provider CASINO</h2>
+      <input type="file" id="casino1" accept=".csv,.xlsx" />
+    </div>
+
+    <div class="upload-item">
+      <h2>♠️ Provider POKER</h2>
+      <input type="file" id="poker1" accept=".csv,.xlsx" />
+    </div>
+  </section>
+
+  <!-- Buttons and Tiket Deposit Section -->
+  <div class="action-center">
+    <!-- Tombol-Tombol -->
+    <div class="buttons-wrap">
+      <button id="processBtn" class="btn-success">Confirm</button>
+      <button id="openSpecialBtn" class="btn-warning" disabled title="Aktif setelah Confirm Data">
+        ⚡ Case Spesial
+      </button>
+    </div>
+
+    <!-- Tiket Deposit -->
+    <div class="tiket-wrap">
+      <div class="tiket-box">
+        <h3>🎫 Tiket Deposit</h3>
+        <input type="file" id="tiketFile" accept=".xlsx,.csv" />
+        <button id="processTiket" class="btn-primary" disabled>Approve</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📊 Summary & Agent side by side -->
+  <div class="summary-wrapper">
+    <div id="summary" class="summary-box"></div>
+    <div id="ringkasan-agent" class="summary-box"></div>
+  </div>
+
+  <!-- 🔹 Tabel hasil -->
+  <div id="table-container" class="table-container"></div>
+
+  <!-- ⬇️ Download Excel -->
+  <div class="download-box" style="margin-top: 25px;">
+    <button id="downloadBtn" class="btn-success" style="display:none;">⬇️ Download Excel</button>
+  </div>
+</div>
+
+<!-- ✅ Library -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/exceljs@4.3.0/dist/exceljs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>

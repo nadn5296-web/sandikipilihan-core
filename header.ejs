@@ -1,0 +1,8 @@
+<div class="topbar">
+  <div class="topbar-left">
+    <h2><%= page ? page.charAt(0).toUpperCase() + page.slice(1) : 'Dashboard' %></h2>
+  </div>
+  <div class="topbar-right">
+    <span>Welcome, <%= user ? user.username : 'Guest' %></span>
+  </div>
+</div>

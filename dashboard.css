@@ -1,0 +1,424 @@
+/* =====================================
+   🌐 GLOBAL STYLE
+===================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f6f8fc;
+  color: #0b1d4e;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+/* =====================================
+   📚 SIDEBAR
+===================================== */
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #343a4f 0%, #0b0e3f 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.logo-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-section img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.logo-section h4 {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Sidebar Menu */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list li {
+  margin-bottom: 8px;
+}
+
+.menu-list a {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  color: #cfd8e3;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.menu-list a i {
+  margin-right: 10px;
+}
+
+.menu-list li.active > a,
+.menu-list a:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+/* Submenu */
+.submenu .submenu-items {
+  display: none;
+  list-style: none;
+  padding-left: 25px;
+  margin-top: 5px;
+}
+
+.submenu.open .submenu-items {
+  display: block;
+}
+
+.submenu-items li a {
+  padding: 8px 0;
+  display: block;
+  font-size: 13px;
+  color: #cfd8e3;
+  transition: 0.3s;
+}
+
+.submenu-items li a:hover {
+  color: #fff;
+}
+/* === Sidebar submenu line style === */
+.sidebar .submenu-items {
+  display: none;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  margin-left: 18px;
+  padding-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.sidebar .submenu.open .submenu-items {
+  display: block;
+}
+
+.sidebar .submenu-items li a {
+  display: block;
+  padding: 6px 0;
+  font-size: 0.9rem;
+  color: #b0b3b8;
+}
+
+.sidebar .submenu-items li.active a {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.sidebar .submenu > a {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+
+/* Hilangkan panah chevron */
+.sidebar .submenu > a .fa-chevron-down {
+  display: none;
+}
+
+/* =====================================
+   🔝 TOPBAR
+===================================== */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 230px;
+  width: calc(100% - 230px);
+  height: 65px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  z-index: 99;
+}
+
+.topbar-left h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0b1d4e;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.welcome-text {
+  font-size: 14px;
+  color: #0b1d4e;
+}
+
+.logout-btn {
+  background: linear-gradient(90deg, #1a3ba8, #0b0e3f);
+  color: white;
+  padding: 7px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+  opacity: 0.9;
+}
+
+/* =====================================
+   📄 MAIN CONTENT
+===================================== */
+.main-content {
+  margin-left: 230px;
+  padding: 95px 25px 40px;
+  transition: 0.3s ease;
+  min-height: 100vh;
+}
+
+.main-content.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================================
+   📊 DASHBOARD
+===================================== */
+.dashboard-overview {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  flex: 1 1 calc(25% - 20px);
+  background: linear-gradient(135deg, #1a3ba8, #0b0e3f);
+  color: white;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card h4 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.stat-card p {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* =====================================
+   📋 TABLES
+===================================== */
+.table-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 25px;
+}
+
+.table-container h4 {
+  margin-bottom: 15px;
+  color: #0b1d4e;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #1a3ba8;
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #e1e4eb;
+}
+
+tr:hover {
+  background: #f9f9fc;
+}
+
+/* =====================================
+   ✅ STATUS COLORS
+===================================== */
+.status.success {
+  color: #0c9d4a;
+  font-weight: 600;
+}
+
+.status.warning {
+  color: #f0a500;
+  font-weight: 600;
+}
+
+.status.danger {
+  color: #e63946;
+  font-weight: 600;
+}
+
+/* =====================================
+   💰 CASHBACK PAGE
+===================================== */
+.cashback-container {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.cashback-container h2 {
+  color: #00205b;
+  margin-bottom: 20px;
+}
+
+.cashback-info {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* =====================================
+   📦 NON-CASHBACK / GENERAL PAGE
+===================================== */
+.page-container {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.page-container h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0b1d4e;
+  margin-bottom: 15px;
+}
+
+.page-container p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* =====================================
+   📱 RESPONSIVE
+===================================== */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .topbar {
+    left: 200px;
+    width: calc(100% - 200px);
+  }
+
+  .main-content {
+    margin-left: 200px;
+  }
+
+  .stats {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    position: fixed;
+    left: -230px;
+    transition: 0.3s ease;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .topbar {
+    left: 0;
+    width: 100%;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}
+/* =====================================
+   📄 MAIN CONTENT (Fix full width)
+===================================== */
+.layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  width: calc(100% - 230px);
+  margin-left: 230px;
+  padding: 95px 25px 40px;
+  background: #f6f8fc;
+  transition: 0.3s ease;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.main-content.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

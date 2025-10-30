@@ -1,0 +1,379 @@
+/* =====================================
+   🌐 GLOBAL RESET
+===================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f6fa;
+  color: #333;
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* =====================================
+   🧭 SIDEBAR
+===================================== */
+.sidebar {
+  width: 230px;
+  background: linear-gradient(180deg, #1a2340, #121833);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0 40px 0;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 20;
+}
+
+/* Scroll sidebar */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* Logo Section */
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.sidebar .logo img {
+  width: 45px;
+  margin-bottom: 5px;
+}
+
+.sidebar .logo h3 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* =====================================
+   📋 MENU
+===================================== */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  position: relative;
+}
+
+/* Hilangkan efek geser */
+.menu li a {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: #d0d3db;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+  border-left: 3px solid transparent;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.menu li a i {
+  margin-right: 10px;
+  font-size: 15px;
+  min-width: 20px; /* biar icon stabil dan tidak geser */
+  text-align: center;
+}
+
+.menu li a:hover,
+.menu li.active > a {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-left: 3px solid #4e8ef7;
+}
+
+/* =====================================
+   📂 SUBMENU
+===================================== */
+.submenu-items {
+  list-style: none;
+  margin: 5px 0 5px 10px;
+  padding-left: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.submenu-items li a {
+  font-size: 13px;
+  padding: 8px 20px 8px 35px;
+  color: #d0d3db;
+  display: block;
+  transition: background-color 0.3s, color 0.3s;
+  border-left: 3px solid transparent;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.submenu-items li a:hover,
+.submenu-items li.active > a {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-left: 3px solid #4e8ef7;
+}
+
+/* Supaya tidak berubah posisi saat submenu aktif */
+.submenu.open > a {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #4e8ef7;
+}
+
+/* =====================================
+   🚪 LOGOUT SECTION
+===================================== */
+.logout {
+  margin-top: auto;
+  padding: 20px;
+}
+
+.logout a {
+  display: flex;
+  align-items: center;
+  color: #ff6b6b;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.logout a i {
+  margin-right: 8px;
+}
+
+/* =====================================
+   🧾 MAIN CONTENT
+===================================== */
+main {
+  flex: 1;
+  padding: 20px 40px;
+  background-color: #f4f6fa;
+  overflow-y: auto;
+  margin-left: 230px;
+  height: 100vh;
+  padding-top: 70px;
+}
+
+/* =====================================
+   🔝 HEADER BAR
+===================================== */
+header {
+  width: calc(100% - 230px);
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 230px;
+  z-index: 30;
+}
+
+header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0b1d4e;
+}
+
+header .user-info {
+  font-size: 14px;
+  color: #555;
+}
+
+/* =====================================
+   🎚️ SCROLLBAR
+===================================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+/* =====================================
+   📱 RESPONSIVE
+===================================== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  header {
+    left: 200px;
+    width: calc(100% - 200px);
+  }
+
+  .menu li a {
+    font-size: 13px;
+  }
+
+  main {
+    padding: 15px;
+    margin-left: 200px;
+  }
+}
+/* =====================================
+   ⚙️ DASHBOARD CONTENT ENHANCEMENT (MODERN STYLE)
+===================================== */
+
+/* Wrapper untuk seluruh konten utama */
+.main-content {
+  background-color: #f5f7fb;
+  min-height: 100vh;
+  padding: 30px 40px;
+  margin-left: 230px;
+  overflow-y: auto;
+}
+
+/* Header (topbar) — seperti Nexus style */
+header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 14px 25px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+header .user-info {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+/* Card container */
+.card {
+  background-color: #fff;
+  border-radius: 14px;
+  padding: 25px 30px;
+  margin-bottom: 24px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+}
+
+/* Judul section */
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 18px;
+}
+
+/* File input & form */
+input[type="file"],
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+input[type="file"]:hover,
+select:hover {
+  border-color: #2563eb;
+}
+
+/* Tombol modern */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 18px;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-success {
+  background-color: #16a34a;
+  color: white;
+}
+.btn-success:hover {
+  background-color: #15803d;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  border: 2px solid #2563eb;
+  color: #2563eb;
+}
+.btn-outline-primary:hover {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+.btn-outline-success {
+  background-color: transparent;
+  border: 2px solid #16a34a;
+  color: #16a34a;
+}
+.btn-outline-success:hover {
+  background-color: #16a34a;
+  color: #fff;
+}
+
+/* Tabel styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th {
+  background-color: #f1f5f9;
+  color: #334155;
+  text-align: left;
+  padding: 10px;
+}
+
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 20px;
+    margin-left: 0;
+  }
+
+  header {
+    left: 0;
+    width: 100%;
+  }
+}

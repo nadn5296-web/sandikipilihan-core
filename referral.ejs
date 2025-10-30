@@ -1,0 +1,100 @@
+<!-- views/transaction/referral.ejs -->
+<div class="page-container">
+  <div class="page-header">
+    <h1>👥 Referral Register Dashboard</h1>
+  </div>
+
+  <!-- ============================ -->
+  <!-- 📂 Upload Section -->
+  <!-- ============================ -->
+  <div class="card-section">
+    <h2>📂 Upload File Referral (max 5 file)</h2>
+    <div class="upload-grid">
+      <% for (let i = 1; i <= 5; i++) { %>
+        <div class="upload-item">
+          <label>File <%= i %> :</label>
+          <div class="upload-input">
+            <input type="file" id="file<%= i %>" accept=".xlsx,.xls,.csv">
+            <button class="btn-primary" onclick="handleFileUpload('file<%= i %>')">Upload</button>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- ============================ -->
+  <!-- 🔍 Filter Section -->
+  <!-- ============================ -->
+  <div class="card-section">
+    <h2>🔍 Filter Data</h2>
+    <div class="inputs">
+      <label>Brand:</label>
+      <select id="filterBrand">
+        <option value="">Pilih Brand</option>
+      </select>
+
+      <label>Referral Code:</label>
+      <input type="text" id="filterReferral" placeholder="Cari Referral Code...">
+
+      <button class="btn-secondary" onclick="exportFilteredData()">⬇️ Export Excel</button>
+    </div>
+  </div>
+
+  <!-- ============================ -->
+  <!-- 📊 Statistik -->
+  <!-- ============================ -->
+  <div class="summary-container">
+    <h2>📊 Statistik Referral</h2>
+    <div class="stat-grid">
+      <div class="stat-card blue">
+        <h3>Total Referral</h3>
+        <p id="totalReferral">0</p>
+      </div>
+      <div class="stat-card green">
+        <h3>Total Sudah Deposit</h3>
+        <p id="totalSudahDeposit">0</p>
+      </div>
+      <div class="stat-card indigo">
+        <h3>Total Deposit</h3>
+        <p id="totalDeposit">0</p>
+      </div>
+      <div class="stat-card purple">
+        <h3>Total Withdrawal</h3>
+        <p id="totalWithdrawal">0</p>
+      </div>
+      <div class="stat-card gray">
+        <h3>Belum Deposit</h3>
+        <p id="totalBelumDeposit">0</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================ -->
+  <!-- 📑 Tabel Data -->
+  <!-- ============================ -->
+  <div class="card-section">
+    <h2>📋 Data Referral</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Brand</th>
+            <th>User Name</th>
+            <th>Referral Code</th>
+            <th>Total Sudah Deposit</th>
+            <th>Total Deposit</th>
+            <th>Total Withdrawal</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr>
+            <td colspan="7" class="no-data">Silakan upload file Excel untuk melihat data referral</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="/js/referral_app.js"></script>

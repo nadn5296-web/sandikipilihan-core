@@ -1,0 +1,316 @@
+/* ============================================ 
+   💼 GH GROUP - Cashback Page Styling
+   ============================================ */
+
+/* ===== Variabel Global ===== */
+:root {
+  --primary-color: #0a1d5a;
+  --hover-color: #132b84;
+  --light-bg: #f9fafd;
+  --border-color: #ccd2e3;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --font-small: 0.95rem;
+  --font-medium: 1rem;
+  --font-large: 1.2rem;
+  --padding: 20px;
+}
+
+/* ===== Global Styles ===== */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f7fb;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-medium);
+}
+
+/* ===== Header ===== */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px 10px;
+}
+
+.page-header h1 {
+  font-size: var(--font-large);
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* ===== Container Main ===== */
+.content-container {
+  width: 100%;
+  max-width: 95%;
+  margin: 0 auto 60px;
+  padding: 0 30px;
+}
+
+/* ===== Card & Section ===== */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--box-shadow);
+  padding: 24px 30px;
+  margin-top: 25px;
+  transition: box-shadow 0.25s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Filter Section ===== */
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 260px;
+  margin-bottom: 20px; /* Spacing disederhanakan */
+}
+
+.input-group label {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 6px;
+}
+
+input[type="date"],
+select,
+input[type="text"] {
+  padding: 9px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--light-bg);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 6px rgba(10, 29, 90, 0.2);
+}
+
+/* ===== Upload Section ===== */
+.upload-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.upload-item {
+  flex: 1;
+  min-width: 240px;
+}
+
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  background: #f8f9fc;
+  border: 1px solid #d8dce5;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+input[type="file"]:hover {
+  background: #eef1f8;
+}
+
+/* ===================== White Box Section for Buttons and Tiket Deposit ===================== */
+.white-box {
+  background-color: white;
+  padding: var(--padding);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+  margin-top: 30px;
+}
+
+/* ===================== Tombol Aksi ===================== */
+.button-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.button-group,
+.tiket-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+button {
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: var(--font-small);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+button.primary {
+  background-color: var(--primary-color);
+  color: white;
+  width: 100%;
+}
+
+button.primary:hover {
+  background-color: var(--hover-color);
+  box-shadow: 0 3px 8px rgba(10, 29, 90, 0.3);
+}
+
+button.secondary {
+  background-color: var(--primary-color);
+  color: white;
+  width: 100%;
+}
+
+button.secondary:hover {
+  background-color: var(--hover-color);
+}
+
+/* ===================== Proses Tiket (Non Hover Transform) ===================== */
+.tiket-box button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 12px 24px;
+  width: 100%;
+}
+
+.tiket-box button:hover {
+  background-color: var(--hover-color);
+  box-shadow: none;
+  transform: none;
+}
+
+/* ===================== Untuk Tombol dengan Lebar yang Sama ===================== */
+.tiket-box,
+.button-group button {
+  padding: 12px 24px;
+}
+
+/* ===================== Responsiveness untuk Tombol ===================== */
+@media (max-width: 768px) {
+  .button-section {
+    flex-direction: column;
+  }
+
+  .button-section button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* ===================== Tabel Hasil ===================== */
+.table-container {
+  margin-top: 35px;
+  overflow-x: auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-small);
+  text-align: left;
+}
+
+.table-container th,
+.table-container td {
+  border: 1px solid #e1e4ed;
+  padding: 12px 20px;
+}
+
+.table-container th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+.table-container tr:nth-child(even) {
+  background-color: #f8f9fc;
+}
+
+.table-container tr:hover {
+  background-color: #eef2fa;
+}
+
+/* ===================== Ringkasan - Summary Box ===================== */
+.summary-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.summary-box {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px 30px;
+  box-shadow: var(--box-shadow);
+  width: 48%;
+}
+
+.summary-box h3 {
+  font-size: var(--font-large);
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.summary-box p {
+  font-size: var(--font-small);
+  color: #555;
+  line-height: 1.6;
+}
+
+.summary-box span {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* ===================== Responsiveness ===================== */
+@media (max-width: 768px) {
+  .summary-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .summary-box {
+    width: 100%;
+  }
+
+  .table-container,
+  .tiket-box {
+    padding: 15px;
+  }
+
+  .table-container th,
+  .table-container td {
+    padding: 10px;
+  }
+
+  .tiket-box input[type="file"],
+  .tiket-box button {
+    padding: 10px;
+    font-size: var(--font-small);
+  }
+}
